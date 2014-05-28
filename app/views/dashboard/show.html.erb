@@ -1,4 +1,30 @@
-<h1>You've done it</h1>
+<%= current_user.email %>
+<% if @locations.count >= 1 %>
+	<h2>Your locations</h2>
+	<% @locations.each do |location| %>	
+		<%= location.name %>
+	<% end %>
+<% else %>
+	<h2>Add first location</h2>
+	<%= form_for(@location) do |f| %>
+	  <% if @location.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+	      <ul>
+	      <% @location.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
 
-<h2>Your locations</h2>
-<h2>Add first location</h2>
+	  <div class="field">
+	    <%= f.label :name %><br>
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+	
+<% end %>
