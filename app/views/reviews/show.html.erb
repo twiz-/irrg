@@ -2,7 +2,7 @@
 
 <p>
   <strong>Product image:</strong>
-  <%= @review.product_image %>
+  <%= image_tag @review.product_image.to_s %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Reviewer image:</strong>
-  <%= @review.reviewer_image %>
+  <%= image_tag @review.reviewer_image.to_s %>
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
