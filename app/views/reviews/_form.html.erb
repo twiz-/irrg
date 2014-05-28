@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :product_image %><br>
-    <%= f.text_field :product_image %>
+    <%= f.text_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :reviewer_image %><br>
-    <%= f.text_field :reviewer_image %>
+    <%= f.text_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
   </div>
   <div class="actions">
     <%= f.submit %>
