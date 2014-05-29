@@ -2,7 +2,7 @@
 <% if @locations.count >= 1 %>
 	<h2>Your locations</h2>
 	<% @locations.each do |location| %>	
-		<%= location.name %>
+		<%= link_to location.name, location_path(location)  %>
 	<% end %>
 <% else %>
 	<h2>Add first location</h2>

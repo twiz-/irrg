@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
     
   def show
     if current_user
-      @locations = current_user.locations    
+      @locations = current_user.locations.all    
       @location = current_user.locations.new
     end
   end
