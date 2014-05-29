@@ -60,6 +60,11 @@ class ReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def visible
+     current_user.reviews.where(id: params[:review_ids]).update_all(visibility: true)
+     redirect_to location_path(current_user.reviews.first.location.id)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +74,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:product_image, :email, :location_id, :comment, :reviewer_image)
+      params.require(:review).permit(:product_image, :email, :location_id, :comment, :reviewer_image,:visibility)
     end
 end

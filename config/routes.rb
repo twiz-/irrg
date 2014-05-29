@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   
   root to: 'reviews#new'
-  resources :reviews
+  resources :reviews do 
+    collection do 
+      put :visible
+    end
+  end
   
   get "dashboard/show"
   

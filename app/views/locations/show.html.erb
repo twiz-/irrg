@@ -1,15 +1,21 @@
 <p id="notice"><%= notice %></p>
 <% @location.each do |location| %>
-	<%= location.name %>
-	<% if location.reviews.count > 1 %>
-		<% location.reviews.each do |review| %>
-			<%= review.product_image %>
-			<%= review.comment %>
-			<%= review.reviewer_image %>
-			<%= review.email %>
+	<%= location.name %><br>
+	<% if location.reviews.count >= 1 %>
+		<%= form_tag visible_reviews_path, method: :put do %>
+			<% location.reviews.each do |review| %>
+				<%= check_box_tag "review_ids[]", review.id %>
+				<%= image_tag review.product_image, class: "product_image" %>
+				<p><i>"<%= review.comment %>"</i></p>
+				<%= image_tag review.reviewer_image, class: "reviewer-image" %>
+				<%= review.email %>
+				<%= review.visibility %>
+				<br><br></hr>
+			<% end %>
+		<%= submit_tag "Make Checked Visible"%>
 		<% end %>
 	<% else %>
-		<p>need some reviews</p>
+		<p><i>no reviews yet</i> <a href="mailto:tony@54footy.com">get some</a></p>
 	<% end %>	
 	<%= link_to 'Edit', edit_location_path(location) %> |
 	<%= link_to 'Back', locations_path %>
