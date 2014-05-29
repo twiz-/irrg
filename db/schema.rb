@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528233819) do
+ActiveRecord::Schema.define(version: 20140529162525) do
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20140528233819) do
   create_table "reviews", force: true do |t|
     t.string   "product_image"
     t.string   "email"
-    t.string   "location"
     t.text     "comment"
     t.string   "reviewer_image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
 
   create_table "users", force: true do |t|

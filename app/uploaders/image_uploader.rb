@@ -14,7 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "merchants/#{model.class.to_s.underscore}s/#{mounted_as}/#{model.location}"
+    "merchants/#{model.class.to_s.underscore}s/#{mounted_as}/#{model.location.name}"
   end
 
   # Process files as they are uploaded:
@@ -38,7 +38,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{secure_token}+#{model.location}.#{file.extension}" if original_filename
+    "#{secure_token}+#{model.location.name}.#{file.extension}" if original_filename
   end
   
   protected
