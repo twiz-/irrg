@@ -25,7 +25,8 @@
 			      <td><%= image_tag review.product_image, class: "product_image"%> </td>		      		      
 			    </tr>
 				<% end %>
-			<%= submit_tag "Make ALL Checked Visible", class: "btn btn-success" %>
+			<%= submit_tag "Make Not Visible", class: "btn btn-success" %>
+			<%= submit_tag "Make Visible", class: "btn btn-success" %>
 			<% end %>
 		  <% else %>
 		  <tr><td>No reviews yet</td></tr>	
