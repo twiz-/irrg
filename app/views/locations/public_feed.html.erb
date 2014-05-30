@@ -1,4 +1,13 @@
+
 <% @public_reviews.each do |feed| %>
-		<%= image_tag feed.product_image, class: "public-product-image" %>
- 		<%= feed.comment %>
+	<div style="position:relative;">
+		<%= image_tag feed.product_image, class: "public-product-image" %><br>
+ 		<div class="comments-wrapper">
+			<%= feed.comment %><br><br>
+			<%= image_tag feed.reviewer_image, class: "review-carousel-image" %>
+			<%= feed.email %>
+		</div>
+	</div>	
+
+	<br><br>			
 <% end %>
