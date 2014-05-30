@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body,p,h1,h2,h3,h4,h5 {
+	font-family: 'Muli', sans-serif;
+}
 .product_image {
 	height: 200px;
 	width: 250px;
@@ -13,8 +16,8 @@
 }
 
 .public-product-image {
-	width: 1050px;
-	height: 500px;
+	width: 100%;
+	height: 600px;
 }
 
 .review-carousel-image {
@@ -24,9 +27,17 @@
 }
 .comments-wrapper {
 	background: rgba(0,0,0,.7); 
-	width: 92.18%; 
+	width: 100%; 
 	color: white; 
 	margin-top: -20px;
 	position: absolute; 
 	bottom: 0px;
+}
+
+.comment-guts {
+	margin:0px;
+}
+.comment-comment {
+	font-size: 2.05em;
+	color: #F8F8FF;
 }
