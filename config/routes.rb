@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   
   get "dashboard/show"
+  get "locations/:id/public_feed", to: 'locations#public_feed', as: :public_feed
   
 
   # The priority is based upon order of creation: first created -> highest priority.

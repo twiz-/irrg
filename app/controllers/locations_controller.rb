@@ -4,8 +4,14 @@ class LocationsController < ApplicationController
 
   # GET /locations
   # GET /locations.json
+  
+  def public_feed
+    # DONT use first get the id of the location or use the name
+    @public_reviews = current_user.locations.first.reviews.visible
+  end
+  
   def index
-    @locations = Location.all
+    @locations = current_user.locations.all
   end
 
   # GET /locations/1
@@ -66,7 +72,7 @@ class LocationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = Location.find(params[:id])
+      @location = current_user.locations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

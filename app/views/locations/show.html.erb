@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<%= current_user.email %> | <%= link_to "Public View", public_feed_path %><br>
+<br><br>
 <% @location.each do |location| %>
 	<%= location.name %><br>
 	<% if location.reviews.count >= 1 %>

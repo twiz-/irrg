@@ -1,0 +1,4 @@
+<% @public_reviews.each do |feed| %>
+		<%= image_tag feed.product_image, class: "public-product-image" %>
+ 		<%= feed.comment %>
+<% end %>
