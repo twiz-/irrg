@@ -17,3 +17,12 @@
 
 # Ignore any image data
 public/.DS_Store
+
+#bootsrap induced stuff
+vendor/assets/.DS_Store
+vendor/assets/stylesheets/.DS_Store
+vendor/.DS_Store
+app/assets/javascripts/.DS_Store
+app/assets/.DS_Store
+app/.DS_Store
+.DS_Store
