@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Irrg</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/css/ratchet.css" %>
   <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/js/ratchet.min.js" %>
   
@@ -9,9 +10,55 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<h1>New review</h1>
+	<header class=" bar bar-nav">
+	  <h1 class="title">New review</h1>
+	</header>	
+	<%= form_for(@review, html: {multipart: true}) do |f| %>
+	  <% if @review.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-	<%= render 'form' %>
+	      <ul>
+	      <% @review.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <div class="field">
+	    <%= f.label :product_image %><br>
+	    <%= f.text_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :email %><br>
+	    <%= f.text_field :email %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :first_name %><br>
+	    <%= f.text_field :first_name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :last_name %><br>
+	    <%= f.text_field :last_name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :location %><br>
+	    <%= f.collection_select :location_id, Location.order(:name), :id, :name,include_blank: true %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :comment %><br>
+	    <%= f.text_area :comment %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :reviewer_image %><br>
+	    <%= f.text_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+	
 
 </body>
 </html>
