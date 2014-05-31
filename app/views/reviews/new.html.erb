@@ -30,7 +30,6 @@
 			
 			<p style="margin-top:50px;">Touch choose file for picture of your food</p>
 		    <%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
-			<br><br>
 		    <%= f.text_field :email, placeholder: "Your email" %>
 			<br>
 		    <%= f.text_field :first_name, placeholder: "First Name" %>
@@ -44,8 +43,9 @@
 		    <%= f.text_area :comment, placeholder: "What did you think of it?" %>
 			<p>Touch Choose File for picture of you!</p>
 		    <%= f.text_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
-			<br><br>
+			<br><br><br><br>
 		    <%= f.submit class: "btn btn-positive" %>
+			<br><br><br><br>
 		  </form>
 		<% end %>
 	</div>	
