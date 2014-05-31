@@ -18,7 +18,7 @@
 				<% location.reviews.each do |review| %>		
 			      <td><%= check_box_tag "review_ids[]",review.id %> | <%= review.visibility%></td>
 				  <td><%=image_tag review.reviewer_image, class: "reviewer-image" %></td>
-				  <td>"<%=review.comment %>" <br>-<%=review.email %></td>
+				  <td>"<%=review.comment %>" <br>-<%= full_name(review) %></td>
 				  <td><%= best_in_place review, :product_name, type: :input, nil: "add this product name" %></td>
 
 			      <td><%= image_tag review.product_image, class: "product_image"%> </td>		      		      

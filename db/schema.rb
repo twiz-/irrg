@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530203446) do
+ActiveRecord::Schema.define(version: 20140531173149) do
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20140530203446) do
     t.integer  "location_id"
     t.boolean  "visibility"
     t.string   "product_name"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "users", force: true do |t|

@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    render layout: false
   end
 
   # GET /reviews/1/edit
@@ -23,6 +24,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        # TODO redirect to page that shows what their review will look like. 
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
@@ -74,6 +76,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:product_image, :email, :location_id, :comment, :reviewer_image, :visibility, :product_name)
+      params.require(:review).permit(:product_image, :email, :location_id, :comment, :reviewer_image, :visibility, :product_name, :first_name, :last_name)
     end
 end
