@@ -1,28 +1,6 @@
-<div id="public-feed-carousel" class="carousel slide" data-ride="carousel">
+<div id="public-feed-carousel" class="carousel slide" data-ride="carousel" data-pause="false" data-interval="4000">
 	<div class="carousel-inner">
-		<% @public_reviews.each do |feed| %>
-			<div class="item">
-				<div style="position:relative;">
-					<%= image_tag feed.product_image, class: "public-product-image" %><br>
-			 		<div class="comments-wrapper">
-						<div class="comment-guts row">
-							<div class="media" style="padding:15px;">
-							  <a class="pull-left" href="#">
-							    <%= image_tag feed.reviewer_image, class: "review-carousel-image" %>
-							  </a>
-							  <div class="media-body">
-							    <h2 class="media-heading"><%= feed.product_name %></h2>
-							    <p style="font-size:1.55em;">"<i><%= feed.comment %></i>"</p>
-							  </div>
-							</div>
-							<div class="col-md-3 col-md-offset-5 comment-email">									
-								- <%= feed.email %>
-							</div>	
-						</div>				
-					</div>
-				</div>
-			</div>
-		<% end %>
+		<%= render 'public_carousel' %>
 	</div>
 </div>
 

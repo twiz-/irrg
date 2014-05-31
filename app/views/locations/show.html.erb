@@ -1,5 +1,4 @@
 <%= current_user.email %> | <%= link_to "Public View", public_feed_path %><br>
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -20,12 +19,12 @@
 			      <td><%= check_box_tag "review_ids[]",review.id %> | <%= review.visibility%></td>
 				  <td><%=image_tag review.reviewer_image, class: "reviewer-image" %></td>
 				  <td>"<%=review.comment %>" <br>-<%=review.email %></td>
-				  <td><%= review.product_name.inspect %></td>
+				  <td><%= best_in_place review, :product_name, type: :input, nil: "add this product name" %></td>
 
 			      <td><%= image_tag review.product_image, class: "product_image"%> </td>		      		      
 			    </tr>
 				<% end %>
-			<%= submit_tag "Make Not Visible", class: "btn btn-success" %>
+			<%= submit_tag "Make Not Visible", class: "btn btn-danger" %>
 			<%= submit_tag "Make Visible", class: "btn btn-success" %>
 			<% end %>
 		  <% else %>

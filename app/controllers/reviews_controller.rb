@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   # GET /reviews/1
@@ -57,8 +58,8 @@ class ReviewsController < ApplicationController
   
   def visible
     if params[:commit] == "Make Visible"
-     current_user.reviews.where(id: params[:review_ids]).update_all(visibility: true)
-     redirect_to location_path(current_user.reviews.first.location.id)
+      current_user.reviews.where(id: params[:review_ids]).update_all(visibility: true)
+      redirect_to location_path(current_user.reviews.first.location.id)
     elsif params[:commit] == "Make Not Visible"
       current_user.reviews.where(id: params[:review_ids]).update_all(visibility: false)
       redirect_to location_path(current_user.reviews.first.location.id)
@@ -68,11 +69,11 @@ class ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @review = Review.find(params[:id])
+      @review = current_user.reviews.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:product_image, :email, :location_id, :comment, :reviewer_image,:visibility, :product_name)
+      params.require(:review).permit(:product_image, :email, :location_id, :comment, :reviewer_image, :visibility, :product_name)
     end
 end
