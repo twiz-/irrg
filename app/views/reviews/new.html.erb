@@ -43,9 +43,8 @@
 		    <%= f.text_area :comment, placeholder: "What did you think of it?" %>
 			<p>Touch Choose File for picture of you!</p>
 		    <%= f.text_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
-			<br><br><br><br>
+			<br>
 		    <%= f.submit class: "btn btn-positive" %>
-			<br><br><br><br>
 		  </form>
 		<% end %>
 	</div>	
