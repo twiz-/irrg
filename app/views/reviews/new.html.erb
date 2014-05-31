@@ -13,7 +13,7 @@
 	<header class=" bar bar-nav">
 	  <h1 class="title">New review</h1>
 	</header>
-	<div class="content-padded">
+	<div class="content">
 		<%= form_for(@review, html: {multipart: true}) do |f| %>
 		  <% if @review.errors.any? %>
 		    <div id="error_explanation">
@@ -43,7 +43,7 @@
 		    <%= f.text_area :comment, placeholder: "What did you think of it?" %>
 			<p>Touch Choose File for picture of you!</p>
 		    <%= f.text_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
-			<br>
+			<br><br><br><br><br>
 		    <%= f.submit class: "btn btn-positive" %>
 		  </form>
 		<% end %>
