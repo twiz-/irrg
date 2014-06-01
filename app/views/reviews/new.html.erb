@@ -4,49 +4,58 @@
   <title>Irrg</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/css/ratchet.css" %>
-  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/js/ratchet.min.js" %>
-  
+  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/js/ratchet.min.js" %>  
   
   <%= csrf_meta_tags %>
+  <style>
+  #review_product_image {
+	  display: none;
+  }
+  #review_reviewer_image {
+  	display: none;
+  }
+  </style>
 </head>
 <body>
 	<header class=" bar bar-nav">
 	  <h1 class="title">New review</h1>
 	</header>
+	
 	<div class="content">
-		<%= form_for(@review, html: {multipart: true}) do |f| %>
-		  <% if @review.errors.any? %>
-		    <div id="error_explanation">
-		      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+		<div class="content-padded">
+			<%= form_for(@review, html: {multipart: true}) do |f| %>
+			  <% if @review.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-		      <ul>
-		      <% @review.errors.full_messages.each do |message| %>
-		        <li><%= message %></li>
-		      <% end %>
-		      </ul>
-		    </div>
-		  <% end %>		    
-		  <form >
+			      <ul>
+			      <% @review.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>		    
+			  <form >
 			
-			<p style="margin-top:50px;">Touch choose file for picture of your food</p>
-		    <%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
-		    <%= f.text_field :email, placeholder: "Your email" %>
-			<br>
-		    <%= f.text_field :first_name, placeholder: "First Name" %>
-			<br>
-		    <%= f.text_field :last_name, placeholder: "Last Name" %>
-			<br>
-			<p>Touch Below field to select where you are?</p>
-		    <%= f.collection_select :location_id, Location.order(:name), :id, :name,include_blank: true %>
-			<br>
-			<p>Write 142 chars what you think of it</p>
-		    <%= f.text_area :comment, placeholder: "What did you think of it?" %>
-			<p>Touch Choose File for picture of you!</p>
-		    <%= f.text_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
-			<br><br><br><br><br>
-		    <%= f.submit class: "btn btn-positive" %>
-		  </form>
-		<% end %>
+				<p>Talk dirty to me</p>
+				<label class="btn btn-block btn-primary">
+					Take Food Picture
+			    	<%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
+				</label>
+			    <%= f.text_field :email, placeholder: "Your email" %>
+			    <%= f.text_field :first_name, placeholder: "First Name" %>
+			    <%= f.text_field :last_name, placeholder: "Last Name" %>
+				select belowasdc
+			    <%= f.collection_select :location_id, Location.order(:name), :id, :name,include_blank: true %>
+			    <%= f.text_area :comment, placeholder: "What did you think of it?" %>
+				<label class="btn btn-block btn-primary">
+					Your Picture
+			    	<%= f.file_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
+				</label>
+			    <%= f.submit class: "btn btn-block btn-positive" %>
+			  </form>
+			<% end %>
+		</div>
 	</div>	
 </body>
 </html>
