@@ -6,6 +6,8 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
   end
+  def thanks
+  end
 
   # GET /reviews/new
   def new
@@ -25,7 +27,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         # TODO redirect to page that shows what their review will look like. 
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to thanks_path, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }

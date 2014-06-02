@@ -36,8 +36,6 @@
 			    </div>
 			  <% end %>		    
 			  <form >
-			
-				<p>Talk dirty to me</p>
 				<label class="btn btn-block btn-primary">
 					Take Food Picture
 			    	<%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
@@ -47,7 +45,7 @@
 			    <%= f.text_field :last_name, placeholder: "Last Name" %>
 				select belowasdc
 			    <%= f.collection_select :location_id, Location.order(:name), :id, :name,include_blank: true %>
-			    <%= f.text_area :comment, placeholder: "What did you think of it?" %>
+			    <%= f.text_area :comment, rows: 4, placeholder: "What did you think of it?" %>
 				<label class="btn btn-block btn-primary">
 					Your Picture
 			    	<%= f.file_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
