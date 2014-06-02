@@ -22,7 +22,7 @@
 	</header>
 	
 	<div class="content">
-		<div class="content-padded">
+		<div class="content-padded"> <!--multipart true is to handle file attachments -->
 			<%= form_for(@review, html: {multipart: true}) do |f| %>
 			  <% if @review.errors.any? %>
 			    <div id="error_explanation">
