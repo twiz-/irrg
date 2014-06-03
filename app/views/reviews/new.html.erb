@@ -35,7 +35,6 @@
 			      </ul>
 			    </div>
 			  <% end %>		    
-			  <form >
 				<label class="btn btn-block btn-primary">
 					Take Food Picture
 			    	<%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
@@ -51,7 +50,7 @@
 			    	<%= f.file_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
 				</label>
 			    <%= f.submit class: "btn btn-block btn-positive" %>
-			  </form>
+
 			<% end %>
 		</div>
 	</div>	
