@@ -42,7 +42,7 @@
 			    <%= f.text_field :email, placeholder: "Your email" %>
 			    <%= f.text_field :first_name, placeholder: "First Name" %>
 			    <%= f.text_field :last_name, placeholder: "Last Name" %>
-				select belowasdc
+				Select location:
 			    <%= f.collection_select :location_id, Location.order(:name), :id, :name,include_blank: true %>
 			    <%= f.text_area :comment, rows: 4, placeholder: "What did you think of it?" %>
 				<label class="btn btn-block btn-primary">
