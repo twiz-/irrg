@@ -2,57 +2,67 @@
 <html>
 <head>
   <title>Irrg</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-  <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/css/ratchet.css" %>
-  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/js/ratchet.min.js" %>  
+  
   
   <%= csrf_meta_tags %>
-  <style>
-  #review_product_image {
-	  display: none;
-  }
-  #review_reviewer_image {
-  	display: none;
-  }
-  </style>
 </head>
 <body>
-	<header class=" bar bar-nav">
-	  <h1 class="title">New review</h1>
-	</header>
-	
-	<div class="content">
-		<div class="content-padded"> <!--multipart true is to handle file attachments -->
-			<%= form_for(@review, html: {multipart: true}) do |f| %>
-			  <% if @review.errors.any? %>
-			    <div id="error_explanation">
-			      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<header style="display:block" class="bar bar-nav">
+  <span class="title">Create New Review</span>
+</header>
+<br>
+<br>
+<br>
+<div class="container">	
+	<%= form_for(@review, html: {multipart: true, role: "form"}) do |f| %>
+	  <% if @review.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-			      <ul>
-			      <% @review.errors.full_messages.each do |message| %>
-			        <li><%= message %></li>
-			      <% end %>
-			      </ul>
-			    </div>
-			  <% end %>		    
-				<label class="btn btn-block btn-primary">
-					Take Food Picture
-			    	<%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
-				</label>
-			    <%= f.text_field :email, placeholder: "Your email", type: :email %>
-			    <%= f.text_field :first_name, placeholder: "First Name" %>
-			    <%= f.text_field :last_name, placeholder: "Last Name" %>
-				Select location:
-			    <%= f.collection_select :location_id, Location.order(:name), :id, :name,include_blank: true %>
-			    <%= f.text_area :comment, rows: 4, placeholder: "What did you think of it?" %>
-				<label class="btn btn-block btn-primary">
-					Your Picture
-			    	<%= f.file_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
-				</label>
-			    <%= f.submit class: "btn btn-block btn-positive" %>
+	      <ul>
+	      <% @review.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>	
+	  <div class="form-group">	    
+		<label class="btn btn-lg btn-block btn-info">
+			Take Food Picture
+	    	<%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
+		</label>
+	  </div>
+	  <div class="form-group">	    
+	    <%= f.text_field :email, placeholder: "Your email", type: :email, class: "form-control" %>
+	  </div>
+	  <div class="form-group">
+	    <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+	  </div>
+	  <div class="form-group">
+	    <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+	  </div>
+	  <div class="form-group">
+		Select location:
+	    <%= f.collection_select :location_id, Location.order(:name), :id, :name,include_blank: true %>
+	  </div>
+	  <div class="form-group">
+	    <%= f.text_area :comment, rows: 4, placeholder: "What did you think of it?", class: "form-control" %>
+	  </div>
+	  <div class="form-group">
+		<label class="btn btn-lg btn-block btn-info">
+			Your Picture
+	    	<%= f.file_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
+		</label>
+	  </div>
+	  <div class="form-group">
+	    <%= f.submit class: "btn-lg btn btn-block btn-success" %>
+	  </div>
+	<% end %>
+</div>
 
-			<% end %>
-		</div>
-	</div>	
 </body>
 </html>
