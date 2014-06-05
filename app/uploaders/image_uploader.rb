@@ -9,7 +9,20 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :fog  
-  process :set_content_type
+  # Process files as they are uploaded:
+  process :set_content_type  
+  process resize_to_fit: [1300, 620]
+  process :fix_exif_orientation
+  
+  def fix_exif_orientation
+    manipulate! do |img|
+      img.auto_orient!
+      img = yield(img) if block_given?
+      img
+    end
+  end
+  
+  
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -17,8 +30,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     "merchants/#{model.class.to_s.underscore}s/#{mounted_as}/#{model.location.name}"
   end
 
-  # Process files as they are uploaded:
-   process resize_to_fit: [1300, 620]
+
    
   #
   # Create different versions of your uploaded files:

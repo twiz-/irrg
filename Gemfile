@@ -20,6 +20,7 @@ gem 'pg'
 gem 'devise'
 gem 'carrierwave'
 gem 'fog'
+# needs require RMagick because osx and potentially heroku/ubuntu is case insensitive so a stakc level too deep error is thrown b/c/ require 2wice
 gem 'rmagick', require: "RMagick"
 # for properly encoding aws strings
 gem 'unf'
