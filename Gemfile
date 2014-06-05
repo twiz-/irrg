@@ -20,6 +20,7 @@ gem 'pg'
 gem 'devise'
 gem 'carrierwave'
 gem 'fog'
+gem 'rmagick', require: "RMagick"
 # for properly encoding aws strings
 gem 'unf'
 
