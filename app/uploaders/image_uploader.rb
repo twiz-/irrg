@@ -11,9 +11,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :fog  
   # Process files as they are uploaded:
   process :set_content_type  
-  process resize_to_fit: [1300, 620]
+  process resize_to_fit: [1632, 1224]
   process :fix_exif_orientation
-  
+  3264x2448
   def fix_exif_orientation
     manipulate! do |img|
       img.auto_orient!
