@@ -1,1 +1,73 @@
-Thanks keep an eye out for your email if you once we reach 20 there will be a drawing ILLL let you know when the srawing is 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Irrg</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  
+  <style>
+  input[type="file"] {
+  	display: none;
+  }
+
+  .bar {
+      position: fixed;
+      right: 0;
+      left: 0;
+      z-index: 10;
+      height: 44px;
+      padding-right: 10px;
+      padding-left: 10px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+  }
+
+  .bar-nav {
+      top: 0;
+  	border-bottom: 1px solid #ddd;
+  	  border-top-left-radius: 12px;
+  	  border-top-right-radius: 12px;
+  	  -webkit-box-shadow: none;
+  	          box-shadow: none;
+  }
+
+  .title {
+  	position: absolute;
+  	  display: block;
+  	  width: 100%;
+  	  padding: 0;
+  	  margin: 0 -10px;
+  	  font-size: 17px;
+  	  font-weight: 500;
+  	  line-height: 44px;
+  	  color: #000;
+  	  text-align: center;
+  	  white-space: nowrap;
+  }
+  </style>
+  
+  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header style="display:block" class="bar bar-nav">
+  <span class="title">Thanks</span>
+</header>
+<br>
+<br>
+<br>
+<div class="container">	
+<p>Thanks for submitting your review! What happens next?</p>
+<ul>
+	<li>We'll send you a confirmation email</li>
+	<li>We'll let you know when the drawing is and who wins (You have a 1/10 chance of winning amazon $20 Gift card)</li>
+</ul>
+</div>
+
+</body>
+</html>

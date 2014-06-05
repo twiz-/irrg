@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
   def show
   end
   def thanks
+    render layout: false
   end
 
   # GET /reviews/new
