@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :review_now_show
 
   # GET /reviews/1
   # GET /reviews/1.json
@@ -80,5 +81,9 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:product_image, :email, :location_id, :comment, :reviewer_image, :visibility, :product_name, :first_name, :last_name)
+    end
+    def review_now_show
+      logger.error "Tried to access an individual review - #{params[:id]}"
+      redirect_to root_path, notice: "Individual reviews can't be rewieved at this moment"
     end
 end

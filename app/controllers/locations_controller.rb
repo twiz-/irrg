@@ -80,7 +80,9 @@ class LocationsController < ApplicationController
     def location_params
       params.require(:location).permit(:name, :user_id)
     end
+    
     def invalid_location
+      logger.error "Attempted to access a location not yet created #{params[:id]}"
       redirect_to dashboard_show_url, notice: "location doesn't exist"
     end
 end
