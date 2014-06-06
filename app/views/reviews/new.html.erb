@@ -49,6 +49,10 @@
   	  text-align: center;
   	  white-space: nowrap;
   }
+  .form-image {
+	  height: 175px;
+	  width: 175px;
+  }
   </style>
   
   
@@ -80,6 +84,10 @@
 	    	<%= f.file_field(:product_image, {type: "file", capture: "camera", accept: "image/*"}) %>
 		</label>
 	  </div>
+	  <div class="form-group" style="text-align:center;">
+		  
+		  <img class="form-image" id="reviewimage" alt="yummy_food.jpg"/>
+	  </div>
 	  <div class="form-group">	    
 	    <%= f.text_field :email, placeholder: "Your email", type: :email, class: "form-control" %>
 	  </div>
@@ -102,6 +110,9 @@
 	    	<%= f.file_field(:reviewer_image, {type: "file", capture: "camera", accept: "image/*"})%>
 		</label>
 	  </div>
+	  <div class="form-group" style="text-align:center;">		  
+		  <img  class="form-image" id="reviewerimage" alt="pretty_mug.jpg"/>
+	  </div>
 	  <div class="form-group">
 	    <%= f.submit class: "btn-lg btn btn-block btn-success" %>
 	  </div>
@@ -111,6 +122,33 @@
  <p class="alert"><%= alert %></p>
 </span>	
 </div>
-
+<script>
+	var desiredWidth;
+ 
+	    $(document).ready(function() {
+			$("#review_product_image").on("change",gotProdPic);
+			$("#review_reviewer_image").on("change",gotRevPic);
+			desiredWidth = window.innerWidth;
+        
+	        if(!("url" in window) && ("webkitURL" in window)) {
+	            window.URL = window.webkitURL;   
+	        }
+		
+		});
+ 	
+		function gotProdPic(event) {
+	        if(event.target.files.length == 1 && 
+	           event.target.files[0].type.indexOf("image/") == 0) {
+	            $("#reviewimage").attr("src",URL.createObjectURL(event.target.files[0]));
+	        }
+		}
+		
+		function gotRevPic(event) {
+	        if(event.target.files.length == 1 && 
+	           event.target.files[0].type.indexOf("image/") == 0) {
+	            $("#reviewerimage").attr("src",URL.createObjectURL(event.target.files[0]));
+	        }
+		}
+</script>    
 </body>
 </html>
