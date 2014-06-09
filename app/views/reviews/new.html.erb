@@ -111,12 +111,15 @@
 		</label>
 	  </div>
 	  <div class="form-group" style="text-align:center;">		  
-		  <img  class="form-image" id="reviewerimage" alt="pretty_mug.jpg"/>
+		  <img  class="form-image" id="reviewerimage" alt="say_cheese.jpg"/>
 	  </div>
 	  <div class="form-group">
-	    <%= f.submit class: "btn-lg btn btn-block btn-success" %>
+	    <%= f.submit data: {confirm: "Please make sure you have read and agree to the terms before submitting" }, class: "btn-lg btn btn-block btn-success" %>
 	  </div>
-	<% end %>	
+	<% end %>
+  <div class="form-group">
+    <small>By submitting this review you agree to the terms outlined here</small>
+  </div>	
 </div>
 <script>
 	var desiredWidth;

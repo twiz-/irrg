@@ -11,17 +11,22 @@
   </thead>
   <tbody>
 	  <% @location.each do |location| %>
-		  <% if location.reviews.count >= 1%>
+		  <% if location.reviews.count >= 1 %>
 		  	<%= form_tag visible_reviews_path, method: :put do %>
 
 			    <tr>
 				<% location.reviews.each do |review| %>		
-			      <td><%= check_box_tag "review_ids[]",review.id %> | <%= review.visibility%></td>
+			      <td>
+					  <%= check_box_tag "review_ids[]",review.id %> | <%= visibile(review.visibility)%>
+					  <%= link_to "Delete this review",review, method: :delete, data: { confirm: 'Are you sure you to delete this review? It cannot be recovered' } %>
+				  </td>
 				  <td><%=image_tag review.reviewer_image, class: "reviewer-image" %></td>
 				  <td>"<%=review.comment %>" <br>-<%= full_name(review) %></td>
-				  <td><%= best_in_place review, :product_name, type: :input, nil: "add this product name" %></td>
+				  
+				  	<td><%= best_in_place review, :product_name, type: :input, nil: "add this product name" %></td>
 
-			      <td><%= image_tag review.product_image, class: "product_image"%> </td>		      		      
+			      <td><%= image_tag review.product_image, class: "product_image"%> </td>
+				  
 			    </tr>
 				<% end %>
 			<%= submit_tag "Make Not Visible", class: "btn btn-danger" %>
