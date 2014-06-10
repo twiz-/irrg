@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Irrg</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  
+  <style>
+  input[type="file"] {
+  	display: none;
+  }
+
+  .bar {
+      position: fixed;
+      right: 0;
+      left: 0;
+      z-index: 10;
+      height: 44px;
+      padding-right: 10px;
+      padding-left: 10px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+  }
+
+  .bar-nav {
+      top: 0;
+  	border-bottom: 1px solid #ddd;
+  	  border-top-left-radius: 12px;
+  	  border-top-right-radius: 12px;
+  	  -webkit-box-shadow: none;
+  	          box-shadow: none;
+  }
+
+  .title {
+  	position: absolute;
+  	  display: block;
+  	  width: 100%;
+  	  padding: 0;
+  	  margin: 0 -10px;
+  	  font-size: 17px;
+  	  font-weight: 500;
+  	  line-height: 44px;
+  	  color: #000;
+  	  text-align: center;
+  	  white-space: nowrap;
+  }
+  </style>
+  
+  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header style="display:block" class="bar bar-nav">
+  <span class="title">Terms</span>
+</header>
+<br>
+<br>
+<br>
+<div class="container">	
+<h4>What will happen with my review?</h4>
+<p>
+	Your review is being submitted to the owner of the itsreallreallygood account associated with the location 
+	you submitted your review for. Usually, this is a store owner or some type of staff member.
+</p>
+<p>
+	Your review is intended for online display to other patrons or potential patrons of the associated merchant. This will most likely be displayed on a screen on the merchant storefront visible from the street but could also be displayed on the merchants hosted website.  Questions? <a href="mailto:tony@54footy.com">Contact</a>
+</p>
+
+<p>
+	The information from your review that will be displayed in the above fashion will be your:
+	<ul>
+		<li>Food image</li>
+		<li>Avatar image</li>
+		<li>Comment</li>
+		<li>First Name</li>
+		<li>Last Name First Initial</li>
+	</ul>  
+	
+	By submitting your review on the homepage you are releasing both Itsreallyreallygood and its known associates to display your review as indicated above without question. 
+	Here are some other well known sites operating in a similar fashion:
+	<ul>
+		<li>Foursquare</li>
+		<li>Yelp</li>
+		<li>Foodspotting</li>
+		<li>Opentable</li>
+	</ul>
+	<strong>
+		Your email will not be used in any way other than correspondance pertaining to the the Amazon Giftcard giveaway. It will not be sold or given to any 3rd parties. We won't spam you because spam is the worst. 
+	</strong>	
+</p>
+<p>click here to see an example review</p>
+
+</div>
+</body>
+</html>

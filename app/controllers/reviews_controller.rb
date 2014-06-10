@@ -6,8 +6,14 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    
   end
+  
   def thanks
+    render layout: false
+  end
+  
+  def terms
     render layout: false
   end
 

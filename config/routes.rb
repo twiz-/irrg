@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "dashboard/show"
   get "locations/:id/public_feed", to: 'locations#public_feed', as: :public_feed
   get "thanks", to: 'reviews#thanks'
+  get "terms", to: 'reviews#terms'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
