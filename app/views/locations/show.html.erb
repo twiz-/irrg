@@ -1,4 +1,4 @@
-<%= current_user.email %> | <%= link_to "Public View", public_feed_path %><br>
+<%= link_to "Public View", public_feed_path %><br>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -29,8 +29,8 @@
 				  
 			    </tr>
 				<% end %>
-			<%= submit_tag "Make Not Visible", class: "btn btn-danger" %>
-			<%= submit_tag "Make Visible", class: "btn btn-success" %>
+			<%= submit_tag "Make Checked Not Visible", class: "btn btn-danger" %> 
+			<%= submit_tag "Make Checked Visible", class: "btn btn-success visible-button" %>
 			<% end %>
 		  <% else %>
 		  <tr><td>No reviews yet</td></tr>	

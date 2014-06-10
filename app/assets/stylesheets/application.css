@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+.alert {
+	margin-top: 40px;
+}
+ .notice {
+ margin-top: 40px;
+}
+.sign-up-box {
+	margin-top:30px;
+}
