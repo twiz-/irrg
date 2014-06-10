@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    
   resources :locations
 
   devise_for :users
@@ -13,6 +14,9 @@ Rails.application.routes.draw do
       put :visible
     end
   end
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   
   get "dashboard/show"
   get "locations/:id/public_feed", to: 'locations#public_feed', as: :public_feed

@@ -10,8 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require bootstrap
+ *= require dashboard
+ *= require locations
+ *= require reviews
  */
 
 
@@ -24,3 +27,15 @@
 .sign-up-box {
 	margin-top:30px;
 }
+
+.product-image-admin {
+	width: 100px;
+	height: 100px;
+	
+}
+.reviewer-image-admin {
+	width: 100px;
+	height: 100px;
+	
+}
+

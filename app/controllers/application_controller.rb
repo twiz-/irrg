@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   
   protected
   def after_sign_in_path_for(resource)
-     dashboard_show_path
+    if resource.is_a?(User)
+      dashboard_show_path 
+    elsif resource.is_a?(AdminUser)
+      admin_dashboard_path(resource)
+    end
   end
 end
