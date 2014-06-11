@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   root to: 'reviews#new'
-  resources :reviews do 
+  resources :reviews, except: :index do 
     collection do 
       put :visible
     end
