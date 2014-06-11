@@ -7,8 +7,7 @@ class LocationsController < ApplicationController
   # GET /locations.json
   
   def public_feed
-    # DONT use first get the id of the location or use the name
-    @public_reviews = current_user.locations.first.reviews.visible
+    @public_reviews = current_user.locations.find_by_id(params[:id]).reviews.visible
     render layout: false
   end
   
