@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   get "dashboard/show"
-  get "locations/:id/public_feed", to: 'locations#public_feed', as: :public_feed
+  get "locations/public_feed/:id", to: 'locations#public_feed', as: :public_feed
   get "thanks", to: 'reviews#thanks'
   get "terms", to: 'reviews#terms'
   

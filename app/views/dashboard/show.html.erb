@@ -1,8 +1,10 @@
 <% if @locations.count >= 1 %>
-	<h2>Your locations</h2>
-	<% @locations.each do |location| %>	
-		<%= link_to location.name, location_path(location)  %>
-	<% end %>
+	<h2 class="page-header">Your locations</h2>
+	<ul>
+		<% @locations.each do |location| %>	
+			<li><%= link_to location.name, location_path(location)  %> | <%= link_to "Edit Name", edit_location_path(location) %></li>
+		<% end %>
+   </ul>
 <% else %>
 	<h2>Add first location</h2>
 	<%= form_for(@location) do |f| %>
