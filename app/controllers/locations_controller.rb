@@ -10,7 +10,6 @@ class LocationsController < ApplicationController
     # DONT use first get the id of the location or use the name
     @public_reviews = current_user.locations.first.reviews.visible
     render layout: false
-    
   end
   
   def index
@@ -25,7 +24,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @location = current_user.locations.new
+    redirect_to dashboard_show_path, notice: "You can only create one location at this time"
   end
 
   # GET /locations/1/edit

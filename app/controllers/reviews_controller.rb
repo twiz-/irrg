@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    
+    redirect_to dashboard_show_path, notice: "You cannot individually view reviews, visit your public feed"
   end
   
   def thanks
