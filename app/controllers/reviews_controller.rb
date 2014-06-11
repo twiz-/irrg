@@ -71,9 +71,11 @@ class ReviewsController < ApplicationController
   def visible
     if params[:commit] == "Make Visible"
       current_user.reviews.where(id: params[:review_ids]).update_all(visibility: true)
+      
       redirect_to location_path(current_user.reviews.first.location.id)
     elsif params[:commit] == "Make Not Visible"
       current_user.reviews.where(id: params[:review_ids]).update_all(visibility: false)
+      
       redirect_to location_path(current_user.reviews.first.location.id)
     end
   end
