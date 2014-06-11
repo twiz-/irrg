@@ -1,4 +1,5 @@
 <%= link_to "Public View", public_feed_path %><br>
+<%= form_tag visible_reviews_path, method: :put do %>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -7,34 +8,51 @@
 	  <th>Comment</th>
 	  <th>Product Name</th>
 	  <th>Food Image</th>
+	  <th>Remove</th>	  
     </tr>
   </thead>
   <tbody>
 	  <% @location.each do |location| %>
 		  <% if location.reviews.count >= 1 %>
-		  	<%= form_tag visible_reviews_path, method: :put do %>
-
 			    <tr>
 				<% location.reviews.each do |review| %>		
-			      <td>
+			      <td>					
 					  <%= check_box_tag "review_ids[]",review.id %> | <%= visibile(review.visibility)%>
-					  <%= link_to "Delete this review",review, method: :delete, data: { confirm: 'Are you sure you to delete this review? It cannot be recovered' } %>
+				  </td>				  
+				  <td>
+					  <%=image_tag review.reviewer_image, class: "reviewer-image" %>
 				  </td>
-				  <td><%=image_tag review.reviewer_image, class: "reviewer-image" %></td>
-				  <td>"<%=review.comment %>" <br>-<%= full_name(review) %></td>
-				  
-				  	<td><%= best_in_place review, :product_name, type: :input, nil: "add this product name" %></td>
-
-			      <td><%= image_tag review.product_image, class: "product_image"%> </td>
-				  
+				  <td>
+					  "<%=review.comment %>" <%= full_name(review) %>
+				  </td>				  
+				  <td>
+					  <i><%= best_in_place review, :product_name, type: :input, nil: "click here to add product name" %></i>
+					  
+					  <% if review.product_name.nil?%>
+					   <span class="label label-danger">Needs Name</span>
+					  <% end %>						
+					  
+				  </td>
+			      <td>
+					  <%= image_tag review.product_image, class: "product_image"%> 
+				  </td>
+				  <td> <%= link_to "Delete this review",review, method: :delete, data: { confirm: 'Are you sure you to delete this review? It cannot be recovered' } %>
+				  </td>				  
 			    </tr>
 				<% end %>
-			<%= submit_tag "Make Checked Not Visible", class: "btn btn-danger" %> 
-			<%= submit_tag "Make Checked Visible", class: "btn btn-success visible-button" %>
-			<% end %>
 		  <% else %>
-		  <tr><td>No reviews yet</td></tr>	
+		  		<tr>
+					<td>No reviews yet</td>
+				</tr>	
 		  <% end %>
 	  <% end %>	  
   </tbody>
 </table>
+<hr>
+<span>
+	<%= submit_tag "Make Checked Not Visible", class: "btn btn-danger" %> 
+	<%= submit_tag "Make Checked Visible", class: "btn btn-success visible-button" %>
+</span>
+<% end %>
+<br>
+<br>

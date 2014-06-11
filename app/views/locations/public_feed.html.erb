@@ -1,13 +1,29 @@
-<div id="public-feed-carousel" class="carousel slide" data-ride="carousel" data-pause="false" data-interval="4000">
-	<div class="carousel-inner">
-		<%= render 'public_carousel' %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Irrg</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+	<div id="public-feed-carousel" class="carousel slide" data-ride="carousel" data-pause="false" data-interval="4000">
+		<div class="carousel-inner">
+			<%= render 'public_carousel' %>
+		</div>
 	</div>
 </div>
 
 <script>
+$('#public-feed-carousel').carousel();
 
 $(function() {
 	$('div.carousel-inner .item:first-child').addClass("active");
 });
 	
 </script>
+</body>
+</html>

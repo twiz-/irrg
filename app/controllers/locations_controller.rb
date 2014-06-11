@@ -9,6 +9,8 @@ class LocationsController < ApplicationController
   def public_feed
     # DONT use first get the id of the location or use the name
     @public_reviews = current_user.locations.first.reviews.visible
+    render layout: false
+    
   end
   
   def index
