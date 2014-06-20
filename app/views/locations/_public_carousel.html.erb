@@ -4,16 +4,16 @@
 			<%= image_tag feed.product_image, class: "public-product-image" %><br>
 	 		<div class="comments-wrapper">
 				<div class="comment-guts row">
-					<div class="media" style="padding:15px;">
-					  <div class="media-body">
-					    <h1 class="media-heading"><%= feed.product_name %></h1>
-					    <p style="font-size:1.85em;">"<i><%= feed.comment %></i>"</p>
-					  </div>
+					<div class="col-md-2">
+						<br>
+						<%= image_tag feed.reviewer_image, class: "review-carousel-image" %> <br>
+						<span class="review-carousel-name"><%= full_name(feed)%></span>
 					</div>
-					<div class="col-md-3  comment-email">									
-						<%= image_tag feed.reviewer_image, class: "review-carousel-image" %> 
-						<%= full_name(feed) %>						 
-					</div>	
+					<div class="col-md-10">
+						<br>
+					    <h2 class="media-heading"><%= feed.product_name %></h2>
+					    <p style="font-size:1.55em;">"<i><%= feed.comment %></i>"</p>
+					</div>		
 				</div>				
 			</div>
 		</div>
