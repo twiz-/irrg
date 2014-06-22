@@ -3,14 +3,20 @@
 		<div style="position:relative;">
 			<%= image_tag feed.product_image, class: "public-product-image" %><br>
 	 		<div class="comments-wrapper">
-				<div class="comment-guts row">
-					<div class="col-md-2">
-						<br>
-						<%= image_tag feed.reviewer_image, class: "review-carousel-image" %> <br>
-						<span class="review-carousel-name"><%= full_name(feed)%></span>
+				<div class="comment-guts row" style="margin:15px;">
+					<div class="col-md-2 col-xs-2">
+						<div class="row">
+							<div class="col-md-10 col-xs-10">
+								<%= image_tag feed.reviewer_image, class: "review-carousel-image" %>
+							</div>
+						</div>
+						<div class="row" id="name">
+							<div class="col-md-10 col-xs-10">
+								<span class="review-carousel-name">- <%= full_name(feed)%></span>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-10">
-						<br>
+					<div class="col-md-10 col-xs-10">
 					    <h2 class="media-heading"><%= feed.product_name %></h2>
 					    <p style="font-size:1.55em;">"<i><%= feed.comment %></i>"</p>
 					</div>		
