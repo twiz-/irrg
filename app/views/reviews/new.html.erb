@@ -115,7 +115,8 @@
 		  <img  class="form-image" id="reviewerimage" alt="say_cheese.jpg"/>
 	  </div>
 	  <div class="form-group">
-	    <%= f.submit data: {confirm: "Please make sure you have read and agree to the terms before submitting" }, class: "btn-lg btn btn-block btn-success" %>
+	    <%= f.submit data: {confirm: "Please make sure you have read and agree to the terms before submitting" }, class: "btn-lg btn btn-block btn-success submit-button" %>
+		<%= image_tag 'loader.gif', class: "loader"%>
 	  </div>
 	<% end %>
   <div class="form-group">
@@ -123,7 +124,7 @@
   </div>	
 </div>
 <script>
-	var desiredWidth;
+	   var desiredWidth;
  
 	    $(document).ready(function() {
 			$("#review_product_image").on("change",gotProdPic);
@@ -149,10 +150,15 @@
 	            $("#reviewerimage").attr("src",URL.createObjectURL(event.target.files[0]));
 	        }
 		}
+		
+		
 </script>
 <script>
 $(document).ready(function() {
-	
+	$('.loader').hide();	
+	$('.submit-button').click(function () {
+		$('.loader').show();
+	});	
 });
 </script>    
 </body>
