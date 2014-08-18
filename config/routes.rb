@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   get "thanks", to: 'reviews#thanks'
   get "terms", to: 'reviews#terms'
   
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
