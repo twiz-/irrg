@@ -30,7 +30,7 @@ gem 'rmagick', require: "RMagick"
 # for properly encoding aws strings
 gem 'unf'
 
-gem 'best_in_place', github: 'bernat/best_in_place', branch: "rails-4"
+gem 'best_in_place', github: 'bernat/best_in_place'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
