@@ -23,7 +23,7 @@ gem 'pg'
 gem 'devise'
 gem 'carrierwave'
 gem 'fog'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 # needs require RMagick because osx and potentially heroku/ubuntu is case insensitive so a stakc level too deep error is thrown b/c/ require 2wice
 gem 'rmagick', require: "RMagick"
